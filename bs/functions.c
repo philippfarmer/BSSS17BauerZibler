@@ -32,9 +32,30 @@ int put(char *key, char *value, char *res)
     }
 }
 
-int get()
+int get(char *key, char *res)
 {
-
+    if(current_length == 0)
+    {
+        printf("There are no files are safed!\n");
+        return -1;
+    }
+    else
+    {
+        for(i = 0; i < STORELENGTH; i++)
+        {
+            if(strcmp((const char *)key_Value_Store.key[i], key) == 0)
+            {
+                printf("Key: %s \n Value: %s",key_Value_Store.key[i], key_Value_Store.value[i]);
+                res = &key_Value_Store.value[i];
+                return 0;
+            }
+            else
+            {
+                printf("No Value found!\n");
+                return -1;
+            }
+        }
+    }
 }
 
 int del()

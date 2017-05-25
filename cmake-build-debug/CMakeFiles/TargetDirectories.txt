@@ -1,3 +1,0 @@
-E:/TH_Koeln/4_SS2017/BS/BSSS17BauerZibler/cmake-build-debug/CMakeFiles/BSSS17BauerZibler.dir
-E:/TH_Koeln/4_SS2017/BS/BSSS17BauerZibler/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/TH_Koeln/4_SS2017/BS/BSSS17BauerZibler/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2017.1.2\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\BSSS17BauerZibler.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\BSSS17BauerZibler.dir/objects.a @CMakeFiles\BSSS17BauerZibler.dir\objects1.rsp
-C:\MinGW\bin\g++.exe  -g   -Wl,--whole-archive CMakeFiles\BSSS17BauerZibler.dir/objects.a -Wl,--no-whole-archive  -o BSSS17BauerZibler.exe -Wl,--out-implib,libBSSS17BauerZibler.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BSSS17BauerZibler.dir\linklibs.rsp
