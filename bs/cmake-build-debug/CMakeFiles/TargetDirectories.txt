@@ -1,0 +1,3 @@
+C:/Users/Dave/Documents/GitHub/BSSS17BauerZibler/bs/cmake-build-debug/CMakeFiles/bs.dir
+C:/Users/Dave/Documents/GitHub/BSSS17BauerZibler/bs/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Dave/Documents/GitHub/BSSS17BauerZibler/bs/cmake-build-debug/CMakeFiles/rebuild_cache.dir
