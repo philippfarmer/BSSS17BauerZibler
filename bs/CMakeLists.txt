@@ -3,5 +3,5 @@ project(bs)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp functions.h)
+set(SOURCE_FILES main.cpp functions.h functions.cpp)
 add_executable(bs ${SOURCE_FILES})

@@ -2,15 +2,15 @@
 #define BS_FUNCTIONS_H
 
 #include <stdio.h>
-#define STORELENGTH 10
+#define STORELENGTH 1024
 
 struct key_Value
 {
-    char *key;
-    char *value;
+    char *key[STORELENGTH];
+    char *value[STORELENGTH];
 };
 
-struct key_Value key_Value_Store[STORELENGTH];
+struct key_Value key_Value_Store;
 
 int put(int key, char *value, char *res);
 int get(int key, char *res);

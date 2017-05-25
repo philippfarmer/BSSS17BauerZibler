@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/bs.dir/main.cpp.obj"
+  "CMakeFiles/bs.dir/functions.cpp.obj"
   "bs.pdb"
   "bs.exe"
   "bs.exe.manifest"
