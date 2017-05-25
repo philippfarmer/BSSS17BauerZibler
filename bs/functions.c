@@ -36,7 +36,7 @@ int get(char *key, char *res)
 {
     if(current_length == 0)
     {
-        printf("There are no files are safed!\n");
+        printf("No files saved!\n");
         return -1;
     }
     else
@@ -64,7 +64,7 @@ int del(char *key, char *res)
     {
         for (int i = 0; i < STORELENGTH; i++)
         {
-            printf("There are no files safed\n");
+            printf("No files saved\n");
             return -1;
         }
         else
