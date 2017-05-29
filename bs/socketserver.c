@@ -19,7 +19,7 @@ int start()
     if (sock < 0)
     {
         perror("creating stream socket");
-        exit(2);
+        exit(1);
     }
     else
     {
@@ -35,7 +35,7 @@ int start()
     //Binden eines Sockets
     server.sin_family = AF_INET;
     server.sin_addr.s_addr = INADDR_ANY;
-    server.sin_port = htons(4711);
+    server.sin_port = htons(2905);
 
     if(bind(sock, (struct sockaddr *)&server, sizeof(server)<0))
         {
@@ -59,7 +59,7 @@ int start()
     //Verbindung akzeptieren
     while (1)
     {
-        fileDescriptor = accept(sock,(struct sockaddr *)&server, &client_Len);
+        fileDescriptor = accept(sock,(struct sockaddr *)&client, &client_Len);
         printf("Connection\n");
         while(read(fileDescriptor, in, 2000) > 0) //Daten vom Array out ==> in
         {
