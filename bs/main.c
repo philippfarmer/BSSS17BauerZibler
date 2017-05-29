@@ -3,7 +3,11 @@
 
 #include "socket.h"
 #include "functions"
+#include <socketserver.c>
 
-int main() {
+int main()
+{
     start();
+
+    return 0;
 }
