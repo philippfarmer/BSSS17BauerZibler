@@ -3,6 +3,16 @@
 #include <sys/time.h>
 #include "socket.h"
 
+int strtoken(char *str,char *separator, char **token, int size)
+{
+    int i = 0;
+    token[0] = strtok(str,separator);
+    while(token[i++] && i < size)
+    {
+        token[i] = strtok(NULL, separator);
+    }
+    return (i);
+}
 int start()
 {
     //Variablen für Socket
