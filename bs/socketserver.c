@@ -43,7 +43,7 @@ int start()
     }
     else
     {
-        printf("Socket binded.\n")
+        printf("Socket binded.\n");
     }
 
     //Auf Verbindung hören
