@@ -15,5 +15,6 @@ struct key_Value key_Value_Store;
 int put(int key, char *value, char *res);
 int get(int key, char *res);
 int del(int key, char *res);
+extern int strtoken(char *str, char *separator, char **token, int size);
 
 #endif //BS_FUNCTIONS_H

@@ -2,17 +2,8 @@
 #include <unistd.h>
 #include <sys/time.h>
 #include "socket.h"
+#include "functions.h"
 
-int strtoken(char *str,char *separator, char **token, int size)
-{
-    int i = 0;
-    token[0] = strtok(str,separator);
-    while(token[i++] && i < size)
-    {
-        token[i] = strtok(NULL, separator);
-    }
-    return (i);
-}
 int start()
 {
     //Variablen für Socket
@@ -79,13 +70,18 @@ int start()
         printf("Connection\n");
         while(read(fileDescriptor, in, 2000) > 0) //Daten vom Array out ==> in
         {
-            strtoken(in, seperator,token, 3);
+            strtoken(in, seperator, token, 3);
+            puts("Befehl: %s\n", token[0]);
+            puts("Key: %s\n", token[1]);
+            puts("Value: %s\n", token[2]);
+
 
             if(strcmp(token[0], "put") == 0)
             {
                 var = put(token[1], token[2], res);
                 puts("PUT funktioniert\n");
             }
+                /*
             else if(strcmp(token[0], "get") == 0)
             {
                 var = get(token[1], res);
@@ -99,7 +95,7 @@ int start()
             else
             {
                 puts("Ungütige Eingabe\n");
-            }
+            }*/
             write(fileDescriptor, out, 2000); //Daten vom Array out ==> Socket
         }
         close(fileDescriptor);  //Der Client hat keine Daten mehr zum übertragen

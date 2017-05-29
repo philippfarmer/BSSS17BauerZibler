@@ -4,34 +4,49 @@
 #include "functions.h"
 
 int current_length = 0;
+int a;
 
 int put(char *key, char *value, char *res)
 {
-    for(int i = 0; i < STORELENGTH; i++)
+    for(a = 0; a < STORELENGTH; a++)
     {
-        if(strcmp(const char *)key_Value_Store.key[i], key)
+        if(current_length == STORELENGTH)
         {
-            res = &key_Value_Store.value[i];
-            key_Value_Store.value[i] = value;
+            strcpy(res, "Es können keine Daten hinzugefügt werden!");
+            printf("\nEs können keine Daten hinzugefügt werden!");
+            return -1;
+        }
+        else if(strcmp(key_Value_Store.key[a], key) == 0)
+        {
+            strcpy(res, key_Value_Store.key[a], key);
+            strcpy(key_Value_Store.value[a], value);
+            printf("\nValue wurde ersetzt.");
+            return 0;
+        }
+        else if(strcmp(key_Value_Store.key[a], NULL) == 0)
+        {
+            strcpy(key_Value_Store.key[a],key);
+            strcpy(key_Value_Store.value[a],value);
+            strcpy(res, value);
+            current_length++;
+            printf("Key: %s und Value: %s", key_Value_Store.key[a], key_Value_Store.value[a]);
             return 0;
         }
     }
-    if(current_length == STORELENGTH)
-    {
-        printf("Nothing can be added\n");
-        return -1;
-    }
-    else
-    {
-        current_length++;
-        strcpy(key_Value_Store.key[current_length],key);
-        strcpy(key_Value_Store.value[current_length], value);
-        printf("Added Key: %s and Value: %s\n",key_Value_Store.key[i], key_Value_Store.value[i]);
-        res = &key_Value_Store.value[current_length];
-        return 0;
-    }
 }
 
+int strtoken(char *str,char *separator, char **token, int size)
+{
+    int i = 0;
+    token[0] = strtok(str,separator);
+    while(token[i++] && i < size)
+    {
+        token[i] = strtok(NULL, separator);
+    }
+    return (i);
+}
+
+/*
 int get(char *key, char *res)
 {
     if(current_length == 0)
@@ -56,9 +71,10 @@ int get(char *key, char *res)
             }
         }
     }
-}
+}*/
 
-int del(char *key, char *res)
+
+/*int del(char *key, char *res)
 {
     if(current_length == 0)
     {
@@ -82,5 +98,4 @@ int del(char *key, char *res)
     strcpy(res, "Keinen passenden Wert gefunden!");
     printf("Nichts gefunden");
     return -1;
-
-}
+}*/
