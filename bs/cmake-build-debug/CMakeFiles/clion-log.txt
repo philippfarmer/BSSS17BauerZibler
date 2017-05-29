@@ -1,4 +1,15 @@
 "C:\Program Files\JetBrains\CLion 2017.1.2\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs
 -- Configuring done
+CMake Error at CMakeLists.txt:7 (add_executable):
+  Cannot find source file:
+
+    main.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .m .M .mm .h .hh .h++ .hm .hpp
+  .hxx .in .txx
+
+
+CMake Error: CMake can not determine linker language for target: bs
+CMake Error: Cannot determine link language for target "bs".
 -- Generating done
 -- Build files have been written to: C:/Users/Dave/Documents/GitHub/BSSS17BauerZibler/bs/cmake-build-debug

@@ -122,60 +122,6 @@ bs/fast:
 	$(MAKE) -f CMakeFiles\bs.dir\build.make CMakeFiles/bs.dir/build
 .PHONY : bs/fast
 
-functions.obj: functions.cpp.obj
-
-.PHONY : functions.obj
-
-# target to build an object file
-functions.cpp.obj:
-	$(MAKE) -f CMakeFiles\bs.dir\build.make CMakeFiles/bs.dir/functions.cpp.obj
-.PHONY : functions.cpp.obj
-
-functions.i: functions.cpp.i
-
-.PHONY : functions.i
-
-# target to preprocess a source file
-functions.cpp.i:
-	$(MAKE) -f CMakeFiles\bs.dir\build.make CMakeFiles/bs.dir/functions.cpp.i
-.PHONY : functions.cpp.i
-
-functions.s: functions.cpp.s
-
-.PHONY : functions.s
-
-# target to generate assembly for a file
-functions.cpp.s:
-	$(MAKE) -f CMakeFiles\bs.dir\build.make CMakeFiles/bs.dir/functions.cpp.s
-.PHONY : functions.cpp.s
-
-main.obj: main.cpp.obj
-
-.PHONY : main.obj
-
-# target to build an object file
-main.cpp.obj:
-	$(MAKE) -f CMakeFiles\bs.dir\build.make CMakeFiles/bs.dir/main.cpp.obj
-.PHONY : main.cpp.obj
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles\bs.dir\build.make CMakeFiles/bs.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles\bs.dir\build.make CMakeFiles/bs.dir/main.cpp.s
-.PHONY : main.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -185,12 +131,6 @@ help:
 	@echo ... bs
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... functions.obj
-	@echo ... functions.i
-	@echo ... functions.s
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
 .PHONY : help
 
 

@@ -82,15 +82,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Dave/Documents/GitHub/BSSS17BauerZibler/bs/functions.cpp">
-			<Option target="bs"/>
-		</Unit>
-		<Unit filename="C:/Users/Dave/Documents/GitHub/BSSS17BauerZibler/bs/functions.h">
-			<Option target="bs"/>
-		</Unit>
-		<Unit filename="C:/Users/Dave/Documents/GitHub/BSSS17BauerZibler/bs/main.cpp">
-			<Option target="bs"/>
-		</Unit>
 		<Unit filename="C:/Users/Dave/Documents/GitHub/BSSS17BauerZibler/bs/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
