@@ -76,18 +76,18 @@ int start()
             printf("Value: %s\n", token[2]);
 
 
-            if(strcmp(token[0], "put") == 0)
+            if(strcmp(token[0], "PUT") == 0)
             {
                 var = put(token[1], token[2], res);
                 puts("PUT funktioniert\n");
             }
                 /*
-            else if(strcmp(token[0], "get") == 0)
+            else if(strcmp(token[0], "GET") == 0)
             {
                 var = get(token[1], res);
                 puts("GET funktioniert\n");
             }
-            else if(strcmp(token[0], "del") == 0)
+            else if(strcmp(token[0], "DEL") == 0)
             {
                 var = del(token[1], res);
                 puts("DEL funktioniert\n");
