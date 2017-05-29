@@ -35,6 +35,29 @@ int put(char *key, char *value, char *res)
     }
 }
 
+int get(char *key, char *res)
+{
+    if(current_length == 0)
+    {
+        printf("Es sind kein Daten gespeichert.\n");
+        return -1;
+    }
+    else
+    {
+        for(a = 0; a < STORELENGTH; a++)
+        {
+            if(strcmp(key_Value_Store.key[a], key)==0)
+            {
+                strcpy(res, key_Value_Store.value[a]);
+                return 0;
+            }
+        }
+    }
+    strcpy(res, "Wert nicht gefunden!");
+    printf("Wert nicht gefunden\n");
+    return -1;
+}
+
 int strtoken(char *str,char *separator, char **token, int size)
 {
     int i = 0;
@@ -45,57 +68,3 @@ int strtoken(char *str,char *separator, char **token, int size)
     }
     return (i);
 }
-
-/*
-int get(char *key, char *res)
-{
-    if(current_length == 0)
-    {
-        printf("There are no files are safed!\n");
-        return -1;
-    }
-    else
-    {
-        for(i = 0; i < STORELENGTH; i++)
-        {
-            if(strcmp((const char *)key_Value_Store.key[i], key) == 0)
-            {
-                printf("Key: %s \n Value: %s",key_Value_Store.key[i], key_Value_Store.value[i]);
-                res = &key_Value_Store.value[i];
-                return 0;
-            }
-            else
-            {
-                printf("No Value found!\n");
-                return -1;
-            }
-        }
-    }
-}*/
-
-
-/*int del(char *key, char *res)
-{
-    if(current_length == 0)
-    {
-        strcpy(res, "Es sind keine Daten vorhanden!");
-        printf("Keine Daten vorhanden");
-        return -1;
-    }
-    else
-    {
-        for(a = 0; a < STORELENGTH; a++)
-        {
-            if(strncmp(key_Value_Store[a].key, key, 1)==0)
-            {
-                strcpy(res, key_Value_Store[a].value);
-                strcpy(key_Value_Store[a].key, NULL);
-                strcpy(key_Value_Store[a].value, NULL);
-                return 0;
-            }
-        }
-    }
-    strcpy(res, "Keinen passenden Wert gefunden!");
-    printf("Nichts gefunden");
-    return -1;
-}*/
