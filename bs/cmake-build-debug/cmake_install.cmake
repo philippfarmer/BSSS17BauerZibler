@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Dave/Documents/GitHub/BSSS17BauerZibler/bs
+# Install script for directory: E:/TH_Koeln/4_SS2017/BS/BSSS17BauerZibler/bs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Dave/Documents/GitHub/BSSS17BauerZibler/bs/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "E:/TH_Koeln/4_SS2017/BS/BSSS17BauerZibler/bs/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

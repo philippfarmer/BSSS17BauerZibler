@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2017.1.2\bin\cmake\bin\cmake.exe" -E remo
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs
+CMAKE_SOURCE_DIR = E:\TH_Koeln\4_SS2017\BS\BSSS17BauerZibler\bs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs\cmake-build-debug
+CMAKE_BINARY_DIR = E:\TH_Koeln\4_SS2017\BS\BSSS17BauerZibler\bs\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs\cmake-build-debug\CMakeFiles C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\TH_Koeln\4_SS2017\BS\BSSS17BauerZibler\bs\cmake-build-debug\CMakeFiles E:\TH_Koeln\4_SS2017\BS\BSSS17BauerZibler\bs\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\TH_Koeln\4_SS2017\BS\BSSS17BauerZibler\bs\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target

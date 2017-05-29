@@ -42,10 +42,10 @@ RM = "C:\Program Files\JetBrains\CLion 2017.1.2\bin\cmake\bin\cmake.exe" -E remo
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs
+CMAKE_SOURCE_DIR = E:\TH_Koeln\4_SS2017\BS\BSSS17BauerZibler\bs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs\cmake-build-debug
+CMAKE_BINARY_DIR = E:\TH_Koeln\4_SS2017\BS\BSSS17BauerZibler\bs\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/bs.dir/depend.make
@@ -65,6 +65,6 @@ CMakeFiles/bs.dir/clean:
 .PHONY : CMakeFiles/bs.dir/clean
 
 CMakeFiles/bs.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs\cmake-build-debug C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs\cmake-build-debug C:\Users\Dave\Documents\GitHub\BSSS17BauerZibler\bs\cmake-build-debug\CMakeFiles\bs.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" E:\TH_Koeln\4_SS2017\BS\BSSS17BauerZibler\bs E:\TH_Koeln\4_SS2017\BS\BSSS17BauerZibler\bs E:\TH_Koeln\4_SS2017\BS\BSSS17BauerZibler\bs\cmake-build-debug E:\TH_Koeln\4_SS2017\BS\BSSS17BauerZibler\bs\cmake-build-debug E:\TH_Koeln\4_SS2017\BS\BSSS17BauerZibler\bs\cmake-build-debug\CMakeFiles\bs.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/bs.dir/depend
 
