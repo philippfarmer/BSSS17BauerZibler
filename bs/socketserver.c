@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/time.h>
 #include "socket.h"
 
 int start()
@@ -13,6 +15,10 @@ int start()
     char in[2000];                  //Daten vom Client an den Server
     char out[2000];                 //Daten vom Server an den Client
     client_Len = sizeof(client);    //Größe der Client Nachricht
+    //Tokens anlegen
+    char seperator = " ";
+    char *token[256];
+    char *res;
 
     //Anlegen eines Sockets
     sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -37,7 +43,7 @@ int start()
     server.sin_addr.s_addr = INADDR_ANY;
     server.sin_port = htons(2905);
 
-    if(bind(sock, (struct sockaddr *)&server, sizeof(server)<0))
+    if(bind(sock, (struct sockaddr *) &server, sizeof(server))<0)
         {
         perror("Error on binding");
     }
@@ -59,10 +65,31 @@ int start()
     //Verbindung akzeptieren
     while (1)
     {
-        fileDescriptor = accept(sock,(struct sockaddr *)&client, &client_Len);
+        fileDescriptor = accept(sock,(struct sockaddr *) &client, &client_Len);
         printf("Connection\n");
         while(read(fileDescriptor, in, 2000) > 0) //Daten vom Array out ==> in
         {
+            strtoken(in, seperator,token, 3);
+
+            if(strcmp(token[0], "put") == 0)
+            {
+                var = put(token[1], token[2], res);
+                puts("PUT funktioniert\n");
+            }
+            else if(strcmp(token[0], "get") == 0)
+            {
+                var = get(token[1], res);
+                puts("GET funktioniert\n");
+            }
+            else if(strcmp(token[0], "del") == 0)
+            {
+                var = del(token[1], res);
+                puts("DEL funktioniert\n");
+            }
+            else
+            {
+                puts("Ungütige Eingabe\n");
+            }
             write(fileDescriptor, out, 2000); //Daten vom Array out ==> Socket
         }
         close(fileDescriptor);  //Der Client hat keine Daten mehr zum übertragen

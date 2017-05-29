@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "socket.h"
+#include "functions.h"
 
 int main()
 {

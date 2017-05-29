@@ -62,35 +62,25 @@ int del(char *key, char *res)
 {
     if(current_length == 0)
     {
-        for (int i = 0; i < STORELENGTH; i++)
+        strcpy(res, "Es sind keine Daten vorhanden!");
+        printf("Keine Daten vorhanden");
+        return -1;
+    }
+    else
+    {
+        for(a = 0; a < STORELENGTH; a++)
         {
-            printf("There are no files safed\n");
-            return -1;
-        }
-        else
-        {
-            for(i = 0; i < STORELENGTH; i++)
+            if(strncmp(key_Value_Store[a].key, key, 1)==0)
             {
-                if(strcmp((const char *)key_Value_Store.key[i],key) == 0)
-                {
-                    res = &key_Value_Store.value[i];
-                    printf("Key: %s and Value: %s deleted.\n",key_Value_Store.key[i],key_Value_Store.value[i]);
-                    strcpy(key_Value_Store.key[i], NULL);
-                    strcpy(key_Value_Store.value[i], NULL);
-                    for(int j = current_length; b > i; b--)
-                    {
-                        key_Value_Store.key[b-1];
-                        key_Value_Store.value[b-1];
-                    }
-                    current_length--;
-                    return 0;
-                }
-                else
-                {
-                    printf("Nothing found!\n");
-                    return -1;
-                }
+                strcpy(res, key_Value_Store[a].value);
+                strcpy(key_Value_Store[a].key, NULL);
+                strcpy(key_Value_Store[a].value, NULL);
+                return 0;
             }
         }
     }
+    strcpy(res, "Keinen passenden Wert gefunden!");
+    printf("Nichts gefunden");
+    return -1;
+
 }
