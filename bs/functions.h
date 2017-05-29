@@ -12,9 +12,9 @@ struct key_Value
 
 struct key_Value key_Value_Store;
 
-int put(int key, char *value, char *res);
-int get(int key, char *res);
-int del(int key, char *res);
+int put(char *key, char *value, char *res);
+int get(char *key, char *res);
+int del(char *key, char *res);
 extern int strtoken(char *str, char *separator, char **token, int size);
 
 #endif //BS_FUNCTIONS_H

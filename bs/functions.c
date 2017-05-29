@@ -18,7 +18,7 @@ int put(char *key, char *value, char *res)
         }
         else if(strcmp(key_Value_Store.key[a], key) == 0)
         {
-            strcpy(res, key_Value_Store.key[a], key);
+            strcpy(key_Value_Store.key[a], key);
             strcpy(key_Value_Store.value[a], value);
             printf("\nValue wurde ersetzt.");
             return 0;

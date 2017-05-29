@@ -17,9 +17,9 @@ int start()
     char out[2000];                 //Daten vom Server an den Client
     client_Len = sizeof(client);    //Größe der Client Nachricht
     //Tokens anlegen
-    char seperator = " ";
     char *token[256];
     char *res;
+    int var;
 
     //Anlegen eines Sockets
     sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -70,10 +70,10 @@ int start()
         printf("Connection\n");
         while(read(fileDescriptor, in, 2000) > 0) //Daten vom Array out ==> in
         {
-            strtoken(in, seperator, token, 3);
-            puts("Befehl: %s\n", token[0]);
-            puts("Key: %s\n", token[1]);
-            puts("Value: %s\n", token[2]);
+            strtoken(in, " ", token, 3);
+            printf("Befehl: %s\n", token[0]);
+            printf("Key: %s\n", token[1]);
+            printf("Value: %s\n", token[2]);
 
 
             if(strcmp(token[0], "put") == 0)
