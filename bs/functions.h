@@ -4,13 +4,18 @@
 #include <stdio.h>
 #define STORELENGTH 1024
 
-struct key_Value
+/*struct kv
 {
-    char *key[STORELENGTH];
-    char *value[STORELENGTH];
-};
+    char *key;
+    char *value;
+};*/
 
-struct key_Value key_Value_Store;
+//struct kv kvs[STORELENGTH];
+//kvs[STORELENGTH].key = {0};
+//kvs[STORELENGTH].value = {0};
+
+char *key[STORELENGTH];// = {0};
+char *value[STORELENGTH];// = {0};
 
 int put(char *key, char *value, char *res);
 int get(char *key, char *res);
