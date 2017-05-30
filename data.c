@@ -39,7 +39,7 @@
         for (i = 0; i < STORELENGTH; i++) {
             if (strcmp(sm[i] -> key, key) == 0) {
                 strcpy(res, sm[i] -> value);
-                printf("\nValue ist: ");
+                //printf("\nValue ist: ");
                 return 0;
             }
         }
@@ -60,9 +60,7 @@
 
                 printf("\nWert gel�scht / Das Array besteht nun aus: \n");
 
-                //for (j = 0; j < STORELENGTH; j++) {
-                    printf("VALUE ist: %s\n", res);
-                //}
+                printf("VALUE ist: %s\n", res);
 
                 return 0;
             }
@@ -78,7 +76,5 @@
         while (token[i++] && i < size) {
             token[i] = strtok(NULL, separator);
         }
-        token[0] = strlen(token[0])-1;
-        token[1] = strlen(token[1])-1;
         return (i);
     }

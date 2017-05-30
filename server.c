@@ -100,6 +100,7 @@ int main(int argc, char *argv[]) {
          /* This is the client process */
           close(sock);
           while ((read_size = recv(fd, in, 2000, 0)) > 0) {
+              //strtoken(in, del, tok, 3);
               strtoken(in, del, tok, 3);
 
               printf("\n==================================\n");
