@@ -79,7 +79,7 @@ int start()
             if(strcmp(token[0], "PUT") == 0)
             {
                 var = put(token[1], token[2], res);
-                puts("PUT funktioniert\n");
+                printf("PUT funktioniert\n");
             }
                 /*
             else if(strcmp(token[0], "GET") == 0)
@@ -91,11 +91,12 @@ int start()
             {
                 var = del(token[1], res);
                 puts("DEL funktioniert\n");
-            }
+
+            }*/
             else
             {
                 puts("Ungütige Eingabe\n");
-            }*/
+            }
             write(fileDescriptor, out, 2000); //Daten vom Array out ==> Socket
         }
         close(fileDescriptor);  //Der Client hat keine Daten mehr zum übertragen
