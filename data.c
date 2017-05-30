@@ -75,7 +75,10 @@
     int strtoken(char *str, char *separator, char **token, int size) {
         int i = 0;
         token[0] = strtok(str, separator);
-        while (token[i++] && i < size)
+        while (token[i++] && i < size) {
             token[i] = strtok(NULL, separator);
+        }
+        token[0] = strlen(token[0])-1;
+        token[1] = strlen(token[1])-1;
         return (i);
     }
