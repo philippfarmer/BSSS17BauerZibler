@@ -50,7 +50,7 @@
     //Wert l�schen
     int DEL(char *key, char* res, data **sm) {
         int i;
-        int j;
+
         for (i = 0; i < STORELENGTH; i++) {
             if (strcmp(sm[i] -> key, key) == 0) {
                 strcpy(res, sm[i] -> value);
