@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
 
     server.sin_family = AF_INET;
     server.sin_addr.s_addr = INADDR_ANY;
-    server.sin_port = htons(2905); //Convert multi-byte integer types from host byte order to network byte order
+    server.sin_port = htons(9871); //Convert multi-byte integer types from host byte order to network byte order
 
     if (bind(sock, (struct sockaddr *) &server, sizeof(server)) < 0) {
         perror("bind socket to server_addr");
@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
 
     char *tok[3];
     int pid;        //Process Identification (Eindeutige Nummer für den Prozess)
-    id = shmget(IPC_PRIVATE,sizeof(data),IPC_CREAT|0777);;/* id = shmget(key, size, flag)
+    id = shmget(IPC_PRIVATE,sizeof(data),IPC_CREAT|0777);/* id = shmget(key, size, flag)
                                                         id = Integer der als ID des Segments verwendet wird
                                                         key = Numerischer Schlüssel long für das Segment IPC_PRIVATE lässt den Kern ihn selbst festlegen
                                                         size = Größe des Segments in Bytes Int
