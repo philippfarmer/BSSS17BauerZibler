@@ -106,7 +106,7 @@ int main(int argc, char *argv[]) {
 
     down.sem_num = 0;
     down.sem_op = -1;
-    down.sem_flag = SEM_UNDO;
+    down.sem_flg = SEM_UNDO;
 
     up.sem_num = 0;
     up.sem_op = 1;
