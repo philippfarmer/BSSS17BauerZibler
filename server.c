@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
     char *temp = &res; //pointer auf res string
     char del[] = " ";
     int i, j, y, semID, semaID, sharedcounterID, *sharedcounter;
-    struct sembuf up, down;
+    struct sembuf up, down, upa, downa;
     unsigned short signals[1];
 
 
