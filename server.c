@@ -11,7 +11,7 @@
 #include <sys/sem.h>
 
 void bzero (void *to, size_t count){
-    memset (to, 0, count); 4
+    memset (to, 0, count);
 }
 void doprocessing (int sock) {
    int n;
@@ -116,6 +116,7 @@ int main(int argc, char *argv[]) {
 
     signals[0] = 1;
 
+    semctl(semaID, 0, SETALL, signals);
     downa.sem_num = 0;
     downa.sem_op =-1;
     downa.sem_flg = SEM_UNDO;
@@ -176,7 +177,7 @@ int main(int argc, char *argv[]) {
 
                 } else if(strcmp(tok[0], "del") == 0){
                     semop(semID, &down, 1);         //Sem wird geblockt
-                    DEL(tok[1], temp, sm);
+                    DEL(tok[1], sm);
                     semop(semID, &up, 1);           //Sem wird freigegeben
                 } else if(strcmp(tok[0], "close") == 0){
                   shutdown(fd, 2);
