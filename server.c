@@ -1,6 +1,6 @@
 #include "data.h"
 #include <stdio.h>
-#include <sys/socket>
+#include <sys/socket.h>
 #include <errno.h>
 #include <arpa/inet.h> //definitions for internet operations
 #include <netinet/in.h> //Internet address family
