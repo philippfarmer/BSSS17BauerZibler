@@ -18,7 +18,7 @@ int PUT(char* key, char* value, char* res, data **sm);
 
 int GET(char* key, char* res, data **sm);
 
-int DEL(char* key, char* res, data **sm);
+int DEL(char* key, data **sm);
 
 int strtoken(char *str, char *separator, char **token, int size);
 
