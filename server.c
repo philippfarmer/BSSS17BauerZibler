@@ -96,17 +96,17 @@ int main(int argc, char *argv[]) {
     /*------------------Semaphore------------------*/
     /* id=semget(key, nsems, flag) legt neue Semaphorengruppen an oder greift auf
     bestehende zu. "id" ist ein Integer der zur Identifizierung der Semaphore dient.
-    "key" ist der Schlüssel vom Typ long, für die Gruppe. "nsems" gibt die Anzahl der Semaphore der
-    Gruppe an (als int). "flags" ist ein int, welche die Zugriffsmöglichkeiten festlegt. */
+    "key" ist der Schlüssel vom Typ long, für die Gruppe. "nsems" gibt die Anzahl der Semaphoren der
+    Gruppe an (als int). "flag" ist ein int, welcher die Zugriffsmöglichkeiten festlegt. */
 
     semID = semget(IPC_PRIVATE, 1, IPC_CREAT | 0777);
 
     signals[0] = 1;
     semctl(semID, 0, SETALL, signals);
 
-    down.sem_num = 0;
-    down.sem_op = -1;
-    down.sem_flg = SEM_UNDO;
+    down.sem_num = 0;           //Nummer der Semaphore innerhalb der Gruppe
+    down.sem_op = -1;           //legt operation fest (Wert > 0 = UP-, Wert < 0 = DOWN-Operation)
+    down.sem_flg = SEM_UNDO;    //Flags zur Steuerung angebbar
 
     up.sem_num = 0;
     up.sem_op = 1;
@@ -162,6 +162,7 @@ int main(int argc, char *argv[]) {
                         printf("\nPut geblockt");
                     }
                     semop(semaID,&upa, 1);          //Sema wird freigegeben
+                    sleep(10);
 
                     GET(tok[1], temp, sm);          //get wird ausgeführt
 
