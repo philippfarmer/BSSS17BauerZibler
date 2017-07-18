@@ -10,6 +10,21 @@
 #include <sys/wait.h>
 #include <sys/sem.h>
 
+int sock, fd, read_size, id;    //Socket , FileDescriptor
+socklen_t client_len;
+struct sockaddr_in server, client;
+char in[2000], out[2000];
+char res[32];
+char *temp = &res; //pointer auf res string
+char del[] = " ";
+int i, j, y, semID, semaID, sharedcounterID, *sharedcounter;
+struct sembuf up, down, upa, downa;
+unsigned short signals[1];
+char *tok[3];
+int pid;       //Process Identification (Eindeutige Nummer für den Prozess)
+
+data *sm[STORELENGTH];
+
 void bzero (void *to, size_t count){
     memset (to, 0, count);
 }
@@ -33,20 +48,48 @@ void doprocessing (int sock) {
    }
 }
 
+/*---------Persistenz Funktionen---------*/
+
+int readCache (Data *sm){
+    FILE *ptr;
+
+    ptr = fopen("servercache.bin","rb");  // r for read, b for binary
+    if(ptr != NULL){
+        fread(sm,sizeof(Data) *N,1,ptr); // Daten auslesen
+        fclose(ptr);
+    }
+    return 0;
+}
+
+int saveCache (Data *sm){
+    FILE *write_ptr;
+    write_ptr = fopen("servercache.bin","wb");  // w for write, b for binary
+    if(write_ptr != NULL){
+        fwrite(sm,sizeof(Data) *N,1,write_ptr); // write 10 bytes from our buffer
+        fclose(write_ptr);
+    }
+    return 0;
+}
+void intHandler(int sig){
+
+    saveCache(sm);
+
+    shmctl(id, IPC_RMID, NULL);
+
+    shmctl(sharedcounterID, IPC_RMID, NULL);
+
+    semctl(semID, 1, IPC_RMID, 0);
+    semctl(semacounter , 1, IPC_RMID, 0);
+
+    printf("Saved and Exit");
+    fflush(0);
+    exit(0);
+}
+
 int main(int argc, char *argv[]) {
-    int sock, fd, read_size, id;    //Socket , FileDescriptor
-    socklen_t client_len;
-    struct sockaddr_in server, client;
-    char in[2000], out[2000];
-    char res[32];
-    char *temp = &res; //pointer auf res string
-    char del[] = " ";
-    int i, j, y, semID, semaID, sharedcounterID, *sharedcounter;
-    struct sembuf up, down, upa, downa;
-    unsigned short signals[1];
 
-
-    data *sm[STORELENGTH];
+    signal(SIGINT, intHandler);
+    signal(SIGTERM, intHandler);
 
 
     sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -58,7 +101,7 @@ int main(int argc, char *argv[]) {
 
     server.sin_family = AF_INET;
     server.sin_addr.s_addr = INADDR_ANY;
-    server.sin_port = htons(9871); //Convert multi-byte integer types from host byte order to network byte order
+    server.sin_port = htons(6789); //Convert multi-byte integer types from host byte order to network byte order
 
     if (bind(sock, (struct sockaddr *) &server, sizeof(server)) < 0) {
         perror("bind socket to server_addr");
@@ -71,8 +114,6 @@ int main(int argc, char *argv[]) {
 
     client_len = sizeof(client);
 
-    char *tok[3];
-    int pid;        //Process Identification (Eindeutige Nummer für den Prozess)
     id = shmget(IPC_PRIVATE,sizeof(data),IPC_CREAT|0777);/* id = shmget(key, size, flag)
                                                         id = Integer der als ID des Segments verwendet wird
                                                         key = Numerischer Schlüssel long für das Segment IPC_PRIVATE lässt den Kern ihn selbst festlegen
@@ -125,6 +166,9 @@ int main(int argc, char *argv[]) {
     upa.sem_op = 1;
     upa.sem_flg = SEM_UNDO;
 
+
+    readCache(sm);
+
     while (1) {
         fd = accept(sock, (struct sockaddr*)&client, &client_len);
         pid = fork();
@@ -142,10 +186,10 @@ int main(int argc, char *argv[]) {
 
                 if(strcmp(tok[0], "put") == 0){
 
+                    semop(semID, &down, 1);
                     printf("Befehl: %s\n", tok[0]);
                     printf("Key: %s\n", tok[1]);
                     printf("Value: %s\n", tok[2]);
-                    semop(semID, &down, 1);
 
                     PUT(tok[1], tok[2], temp, sm); // referenz auf erste element
 
