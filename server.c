@@ -192,11 +192,12 @@ int main(int argc, char *argv[]) {
                     semop(semID, &down, 1);
                     PUT(tok[1], tok[2], temp, sm); // referenz auf erste element
                     semop(semID, &up, 1);
+                    fflush(0);
 
                 }else if(strcmp(tok[0], "get") == 0){
                     printf("\n *get gewählt*\n");
                     fflush(0);
-                    semop(semacounter, &downa, 1); // Sema block
+                    semop(semacounter, &downa, 1); // Sema wird geblockt
                     *sharedcounter +=  1;         // Readcounter erhöht
                     printf("\nLese Anfrage gestartet, aktuell %d", *sharedcounter);
                     fflush(0);
@@ -217,7 +218,7 @@ int main(int argc, char *argv[]) {
 
                     if(*sharedcounter == 0){       //wenn keine get anfrage mehr läuft
                         semop(semID, &up, 1);                             //sem wird freigegeben
-                        printf("\n Lese Prozesse beendet, put freigegeben");
+                        printf("\nLese Prozesse beendet, put freigegeben");
                         fflush(0);
                         printf("\n");
                         fflush(0);
@@ -229,6 +230,7 @@ int main(int argc, char *argv[]) {
                     semop(semID, &down, 1);
                     DEL(tok[1], sm);
                     semop(semID, &up, 1);
+                    fflush(0);
                 }else if(strcmp(tok[0], "close") == 0){
                     shutdown(fd, 2);
                 } else{

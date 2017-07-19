@@ -22,6 +22,7 @@ int PUT(char *key, char *value, char *res, Data *sm) {
             fflush(0);
             strcpy(sm[j].value, value);
             strcpy(sm[j].key, key);
+            fflush(0);
             return 0;
         }
     }
@@ -39,7 +40,7 @@ int GET(char *key, char *res, Data *sm) {
     for (i = 0; i < STORELENGTH; i++) {
         if (strcmp(sm[i].key, key) == 0) {
             strcpy(res, sm[i].value);
-            printf("\nValue ist: ");
+            //printf("\nValue ist: ");
             fflush(0);
             return 0;
         }
@@ -58,7 +59,7 @@ int DEL(char *key, Data *sm) {
             strcpy(sm[i].value, "");
             strcpy(sm[i].key, "");
 
-            printf("\nWert gel�scht / Das Array besteht nun aus: \n");
+            printf("\nWert geloescht / Das Array besteht nun aus: \n");
             fflush(0);
             for (j = 0; j < STORELENGTH; j++) {
                 printf("%i KEY ist: %s\n", j+1, sm[j].key);
